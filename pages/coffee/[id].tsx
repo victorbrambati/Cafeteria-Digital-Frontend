@@ -9,11 +9,12 @@ export default function CoffeeDescription() {
   const { id } = router.query
 
  const myCoffee = coffeeProducts.find(coffee => coffee.id === id)
+ const addToCart = useCartStore(state => state.addToCart);
+
  if(!myCoffee){
 return <div />
  }
 
- const addToCart = useCartStore(state => state.addToCart);
 
 
   return (
