@@ -8,6 +8,7 @@ export interface Config {
   totalPrice: number;
   addToCart: (coffee: CoffeeProductType) => void;
   removeToCart: (coffee: CoffeeProductType) => void;
+  resetCart: () => void;
 }
 
 export const useCartStore = create(
@@ -33,14 +34,14 @@ export const useCartStore = create(
             totalPrice: get().totalPrice + newCart[indexOfCoffee].price,
           });
         } else if (!findCart) {
-          coffee.quantity++;
+          const newCoffe = { ...coffee };
+          newCoffe.quantity++;
           set({
-            cart: [...get().cart, coffee],
+            cart: [...get().cart, newCoffe],
             totalProducts: get().totalProducts + 1,
             totalPrice: get().totalPrice + coffee.price,
           });
         }
-        console.log(newCart);
       },
       removeToCart: (coffee) => {
         const newCart = get().cart;
@@ -71,6 +72,8 @@ export const useCartStore = create(
           }
         }
       },
+      resetCart: () =>
+        set({ cart: <CoffeeProductType[]>[], totalPrice: 0, totalProducts: 0 }),
     }),
 
     {
