@@ -27,7 +27,7 @@ import { PasswordField } from '../../components/PasswordField'
 import { useAuth } from '../../store/useAuth'
 
 
-export default function index(){
+export default function SignUp(){
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");

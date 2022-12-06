@@ -28,7 +28,7 @@ import { setCookie, parseCookies } from "nookies";
 import Router from 'next/router'
 
 
-export default function index(){
+export default function Login(){
 
 const [email, setEmail] = React.useState("");
 const [password, setPassword] = React.useState("");
