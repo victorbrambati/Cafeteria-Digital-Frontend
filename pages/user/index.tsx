@@ -5,7 +5,6 @@ import Header from '../../components/Header'
 import ConfirmPurchase from '../../components/ConfirmPurchase'
 import { useAuth } from '../../store/useAuth'
 import { CoffeeProductType } from "../../data/products";
-import Router from 'next/router'
 import React from 'react'
 
 export default function User() {
@@ -18,7 +17,7 @@ export default function User() {
   }, [actualUserInfo]);
 
   if(userInfo.email === ''){
-    Router.push("/login");
+  
   }
   
   
